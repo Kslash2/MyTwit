@@ -52,8 +52,7 @@ public abstract class Friends {
         this.twitter = twitter;
         this.username = username;
         userId = twitter.showUser(username).getId();
-
-
+        this.createIDs();
     }
 
     public Twitter getTwitter(){
@@ -93,9 +92,6 @@ public abstract class Friends {
      */
     private void createScreenName()throws TwitterException {
         System.out.println("Creating screenNames...");
-        if(IDsList.isEmpty()) {
-            createIDs();
-        }
         for(Long id : IDsList){
             screenNameList.add(twitter.showUser(id).getScreenName());
         }
@@ -103,9 +99,6 @@ public abstract class Friends {
     }
 
     public List<Long> getIDs() throws TwitterException{
-        if(this.IDsList.isEmpty()) {
-            this.createIDs();
-        }
         return IDsList;
     }
 
