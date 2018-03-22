@@ -15,7 +15,7 @@ Getting the latest tweets from your home and latest tweets from specific user
 In this package you will find main class, ConfigurationBuilder "wrapped" and Save class which let you save almost everything you can do with this application on a file. (Usually you will get a list of something, so this class will save each element of the list in a file you choose).
 
 
-
+## Other Info
 
 I decided to use Apache License 2.0 as Twitter4J uses the same License. If you want to give me some suggestion for my code, maybe about refactoring it etc. contact me! I will be happy to listen to you! Have fun!
 
