@@ -77,9 +77,6 @@ public abstract class Friends {
      */
     private void createUsers()throws TwitterException {
         System.out.println("Creating users...");
-        if(IDsList.isEmpty()) {
-            createIDs();
-        }
         for(Long id : IDsList){
             usersList.add(twitter.showUser(id));
         }
