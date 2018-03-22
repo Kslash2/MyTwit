@@ -30,6 +30,8 @@ import java.util.List;
  */
 public class MyTwit {
 
+    private MyTwit(){}
+
     /**
      * Main
      * @param Args

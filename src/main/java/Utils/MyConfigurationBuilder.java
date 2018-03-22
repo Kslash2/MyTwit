@@ -30,10 +30,6 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 public class MyConfigurationBuilder {
     private ConfigurationBuilder myConfigurationBuilder;
-    private String OAuthConsumerKey;
-    private String OAuthConsumerSecret;
-    private String OAuthAccessToken;
-    private String OAuthAccessTokenSecret;
     private TwitterFactory tf;
     private Twitter myTwitter;
 
@@ -46,11 +42,6 @@ public class MyConfigurationBuilder {
      * @param OAuthAccessTokenSecret
      */
     public MyConfigurationBuilder(String OAuthConsumerKey, String OAuthConsumerSecret, String OAuthAccessToken, String OAuthAccessTokenSecret){
-        this.OAuthConsumerKey = OAuthConsumerKey;
-        this.OAuthConsumerSecret = OAuthConsumerSecret;
-        this.OAuthAccessToken = OAuthAccessToken;
-        this.OAuthAccessTokenSecret = OAuthAccessTokenSecret;
-
         this.myConfigurationBuilder = new ConfigurationBuilder();
         myConfigurationBuilder.setDebugEnabled(true)
                 .setOAuthConsumerKey(OAuthConsumerKey)
