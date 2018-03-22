@@ -1,6 +1,7 @@
 # MyTwit
-[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0) 
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=flat-square&logo=twitter)](https://twitter.com/Simone_kslash)
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0) 
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=flat&logo=twitter)](https://twitter.com/Simone_kslash)
+[![Kiuwan](https://www.kiuwan.com/github/Simo22/MyTwit/badges/quality.svg)](https://www.kiuwan.com/github/Simo22/MyTwit)
 
 This application is just a Maven project written in Java which I made for fun.
 After making a new Twitter account (I had one before) I wanted to follow a users whose username I couldn't remember.
