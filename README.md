@@ -3,7 +3,7 @@
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=flat-square&logo=twitter)](https://twitter.com/Simone_kslash)
 
 This application is just a Maven project written in Java which I made for fun.
-After making a new Twitter account (I had one before) I wanted to follow a users whose username escapes me. I just couldn't remember it! 
+After making a new Twitter account (I had one before) I wanted to follow a users whose username I couldn't remember.
 But I remember that he was a follower of another one user which I follow. So instead of scrolling down for hours, I decided to use the API. That's why I love programming.
 After doing that, I decided to "improve" the project with some "main" utilities.
 
