@@ -15,5 +15,17 @@
         </dependency>
 
     </dependencies>
-    
+    <developers>
+        <developer>
+            <id>Kslash</id>
+            <name>Simone Kslash Angeletti</name>
+            <email>simoneangeletti93@gmail.com</email>
+
+            <roles>
+                <role>lead</role>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
 </project>
