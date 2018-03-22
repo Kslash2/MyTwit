@@ -20,7 +20,6 @@ package Utils;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
-import twitter4j.auth.AccessToken;
 import twitter4j.conf.ConfigurationBuilder;
 
 /**
@@ -38,7 +37,14 @@ public class MyConfigurationBuilder {
     private TwitterFactory tf;
     private Twitter myTwitter;
 
-
+    /**
+     * Constructor of MyConfigurationBuilder
+     * It has 4 parameters which are needed for ConfigurationBuilder instance
+     * @param OAuthConsumerKey
+     * @param OAuthConsumerSecret
+     * @param OAuthAccessToken
+     * @param OAuthAccessTokenSecret
+     */
     public MyConfigurationBuilder(String OAuthConsumerKey, String OAuthConsumerSecret, String OAuthAccessToken, String OAuthAccessTokenSecret){
         this.OAuthConsumerKey = OAuthConsumerKey;
         this.OAuthConsumerSecret = OAuthConsumerSecret;

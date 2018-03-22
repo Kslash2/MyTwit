@@ -18,7 +18,10 @@
 
 package TwitUsers;
 
-import twitter4j.*;
+
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +31,7 @@ import java.util.List;
  * specialized in TwitUsers.Following and TwitUsers.Followers (There is only 1 method different).
  * You can get a list of ids,Users(not TwitUsers.TwitUser),screenNames.
  * Obviously if you need other kind of info, you can take them from users.
- * Instances of TwitUsers.Friends subclasses will automatically get IDs using constructor, but not Users or screenNames because
- * it can take so much time and moreover there is an application's rate limit from Twitter API itself.
- * So when you need TwitUsers.Followers or TwitUsers.Following it will get in that moment.
+ *
  * @author Simone Kslash Angeletti
  */
 public abstract class Friends {
@@ -41,11 +42,17 @@ public abstract class Friends {
     private String username;
     private long userId;
 
-    protected Friends(Twitter twitter, String username) throws TwitterException{
+    /**
+     * Constructor of Friends
+     * @param twitter
+     * @param username
+     * @throws TwitterException
+     */
+    protected Friends(Twitter twitter, String username) throws TwitterException {
         this.twitter = twitter;
         this.username = username;
         userId = twitter.showUser(username).getId();
-        this.createIDs();
+
 
     }
 
@@ -71,10 +78,11 @@ public abstract class Friends {
      */
     private void createUsers()throws TwitterException {
         System.out.println("Creating users...");
-        if(IDsList.isEmpty())
-            IDsList = getIDs();
-        for(Long ID : IDsList){
-            usersList.add(twitter.showUser(ID));
+        if(IDsList.isEmpty()) {
+            createIDs();
+        }
+        for(Long id : IDsList){
+            usersList.add(twitter.showUser(id));
         }
 
     }
@@ -85,27 +93,33 @@ public abstract class Friends {
      */
     private void createScreenName()throws TwitterException {
         System.out.println("Creating screenNames...");
-        if(IDsList.isEmpty())
-            IDsList = getIDs();
-        for(Long ID : IDsList){
-            screenNameList.add(twitter.showUser(ID).getScreenName());
+        if(IDsList.isEmpty()) {
+            createIDs();
+        }
+        for(Long id : IDsList){
+            screenNameList.add(twitter.showUser(id).getScreenName());
         }
 
     }
 
     public List<Long> getIDs() throws TwitterException{
+        if(this.IDsList.isEmpty()) {
+            this.createIDs();
+        }
         return IDsList;
     }
 
     public List<User> getUsers() throws TwitterException {
-        if(this.usersList.isEmpty())
+        if(this.usersList.isEmpty()) {
             this.createUsers();
+        }
         return usersList;
     }
 
     public List<String> getScreenNames() throws TwitterException {
-        if(this.screenNameList.isEmpty())
+        if(this.screenNameList.isEmpty()) {
             this.createScreenName();
+        }
         return screenNameList;
     }
 
@@ -117,13 +131,13 @@ public abstract class Friends {
      */
     public boolean searchUsername(String userSearched)throws TwitterException{
        Long idSearched = this.twitter.showUser(userSearched).getId();
-
+       boolean result = false;
         for(long id : this.IDsList){
             if(id == idSearched){
-                return true;
+                result = true;
             }
         }
-        return false;
+        return result;
     }
 
 

@@ -31,6 +31,12 @@ public class TwitUser {
     private Following following;
     private Followers followers;
 
+    /**
+     * Constructor of TwitUser
+     * @param twitter
+     * @param username
+     * @throws TwitterException
+     */
     public TwitUser(Twitter twitter, String username) throws TwitterException {
         this.twitter = twitter;
         this.username = username;

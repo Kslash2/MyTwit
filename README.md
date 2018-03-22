@@ -12,7 +12,7 @@ An easy way to see your messages and send ones.
 ## Tweets:
 Getting the latest tweets from your home and latest tweets from specific user
 ## Utils: 
-In this package you will find main class, ConfigurationBuilder "wrapped" and Save class which let you save almost everything you can do with this application on a file. (Usually you will get a list of something, so this class will save each element of the list in a file you choose).
+In this package you will find main class, ConfigurationBuilder "wrapped" and SaveUtil class which let you save almost everything you can do with this application on a file. (Usually you will get a list of something, so this class will save each element of the list in a file you choose).
 
 
 ## Other Info

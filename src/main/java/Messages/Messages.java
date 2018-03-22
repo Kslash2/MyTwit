@@ -18,7 +18,9 @@
 
 package Messages;
 
-import twitter4j.*;
+import twitter4j.DirectMessage;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +31,12 @@ import java.util.List;
  */
 public class Messages {
     private Twitter twitter;
-    private String footer = "**Message sent using \"myTwit\" made with Twitter4j**";
-    List<DirectMessage> messages;
+    private List<DirectMessage> messages;
 
+    /**
+     *Class constructor
+     * @param twitter
+     */
     public Messages(Twitter twitter){
 
         this.twitter = twitter;
@@ -43,9 +48,9 @@ public class Messages {
      * @param msg
      * @throws TwitterException
      */
-    public void sendTo(String username, String msg) throws TwitterException{
+    public void sendTo(String username, String msg) throws TwitterException {
         Long recipientId = twitter.showUser(username).getId();
-        DirectMessage message = twitter.sendDirectMessage(recipientId, msg + "\n" + footer);
+        DirectMessage message = twitter.sendDirectMessage(recipientId, msg);
         System.out.println("Sent: " + message.getText() + " to @" + message.getRecipientScreenName());
     }
 
@@ -73,8 +78,9 @@ public class Messages {
         }
         else {
             for (DirectMessage dm : messages) {
-                if (dm.getId()==receivedFromId)
+                if (dm.getId()==receivedFromId) {
                     messagesFromUser.add(dm);
+                }
             }
         }
         return messagesFromUser;

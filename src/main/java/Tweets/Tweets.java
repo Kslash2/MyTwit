@@ -18,7 +18,11 @@
 
 package Tweets;
 
-import twitter4j.*;
+import twitter4j.Query;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.QueryResult;
 
 import java.util.List;
 
@@ -30,6 +34,10 @@ public class Tweets{
     private Twitter twitter;
     private List<Status> statuses;
 
+    /**
+     * Constructor of Tweets
+     * @param twitter
+     */
     public Tweets(Twitter twitter){
         this.twitter = twitter;
     }

@@ -28,6 +28,12 @@ import twitter4j.TwitterException;
  */
 public class Followers extends Friends {
 
+    /**
+     * Constructor of Followers
+     * @param twitter
+     * @param username
+     * @throws TwitterException
+     */
     public Followers(Twitter twitter, String username) throws TwitterException{
         super(twitter,username);
     }

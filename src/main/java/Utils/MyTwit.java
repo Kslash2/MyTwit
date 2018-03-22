@@ -19,8 +19,9 @@
 package Utils;
 
 import TwitUsers.TwitUser;
-import twitter4j.*;
-import java.io.*;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -29,6 +30,12 @@ import java.util.List;
  */
 public class MyTwit {
 
+    /**
+     * Main
+     * @param Args
+     * @throws TwitterException
+     * @throws IOException
+     */
     public static void  main(String Args[]) throws TwitterException,IOException {
         /*
          * Create your app here https://apps.twitter.com/
@@ -46,13 +53,13 @@ public class MyTwit {
 
         TwitUser kslash = new TwitUser(twitter,"Simone_Kslash"); //Follow me on Twitter ;) xD
 
-        kslash.setFollowing();
+        kslash.setFollowers();
 
 
-        List<String> screenNamesOfFollowing = kslash.getFollowing().getScreenNames();
+        List<String> screenNamesOfFollowers = kslash.getFollowers().getScreenNames();
 
 
-        Save<String> saveFollowing = new Save();
-        saveFollowing.saveText(screenNamesOfFollowing,"screenNamesOfFollowing.txt");
+        SaveUtil<String> saveFollowers= new SaveUtil();
+        saveFollowers.saveText(screenNamesOfFollowers,"screenNamesOfFollowing.txt");
     }
 }

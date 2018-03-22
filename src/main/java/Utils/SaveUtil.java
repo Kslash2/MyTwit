@@ -26,9 +26,8 @@ import java.util.List;
  * @author Simone Kslash Angeletti
  * @param <E>
  */
-public class Save <E>  {
-    private FileOutputStream fos;
-    private BufferedOutputStream bw;
+public class SaveUtil<E>  {
+
     private PrintWriter out;
 
     /**
@@ -38,19 +37,19 @@ public class Save <E>  {
      * @param path
      * @throws IOException
      */
-    public void saveText(List<E> elements,String path)throws IOException{
-        fos= new FileOutputStream(path);
-        bw = new BufferedOutputStream(fos);
-        out = new PrintWriter(bw);
-        int i=0;
-        for(E el : elements){
-                out.println(elements.get(i));
-            i++;
-        }
+    public void saveText(List<E> elements, String path){
 
-        out.close();
-        bw.close();
-        fos.close();
+        try (FileOutputStream fos = new FileOutputStream(path)){
+
+            out = new PrintWriter(new BufferedOutputStream(fos));
+
+            for (E el : elements) {
+                out.println(el);
+            }
+        }
+        catch (IOException ioe){
+            System.out.println("Exception Can't find path or can't close stream");
+        }
 
     }
 
