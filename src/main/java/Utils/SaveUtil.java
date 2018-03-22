@@ -18,7 +18,11 @@
 
 package Utils;
 
-import java.io.*;
+
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -27,8 +31,6 @@ import java.util.List;
  * @param <E>
  */
 public class SaveUtil<E>  {
-
-    private PrintWriter out;
 
     /**
      * Extract from the list elements each element and save it in a file
@@ -41,7 +43,7 @@ public class SaveUtil<E>  {
 
         try (FileOutputStream fos = new FileOutputStream(path)){
 
-            out = new PrintWriter(new BufferedOutputStream(fos));
+            PrintWriter out = new PrintWriter(new BufferedOutputStream(fos));
 
             for (E el : elements) {
                 out.println(el);
